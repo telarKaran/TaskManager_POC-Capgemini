@@ -1,0 +1,62 @@
+<br />
+<hr />
+<label class="form-label">Assigne Me</label>
+<input
+  class="form-control"
+  [(ngModel)]="search"
+  (ngModelChange)="Search()"
+  name="'Search"
+/>
+<hr />
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Type</th>
+
+      <th scope="col">Title</th>
+      <th scope="col">Created On</th>
+      <th scope="col">Updated On</th>
+      <th scope="col">Status</th>
+      <th scope="col">Take Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let task of Taskss | paginate : { itemsPerPage: 4, currentPage: p };
+        let i = index
+      "
+    >
+      <td scope="row">{{ i + 1 }}</td>
+      <td scope="row">{{ task.type }}</td>
+      <td scope="row">{{ task.title }}</td>
+      <td scope="row">{{ task.createdon }}</td>
+      <td scope="row">{{ task.updatedon }}</td>
+      <td scope="row">{{ task.status }}</td>
+      <td scope="row">
+        <button
+          style="margin: 1px"
+          class="btn btn-outline-primary"
+          (click)="edittask(i)"
+        >
+          Edit</button
+        ><button
+          style="margin: 1px"
+          class="btn btn-outline-danger"
+          (click)="deleteitem(i)"
+        >
+          Delete</button
+        ><button style="margin: 1px" class="btn btn-outline-dark">Other</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="display: flex; justify-content: flex-end; padding: 10px">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+<button class="btn btn-outline-primary" (click)="createTask()" type="button">
+  Create Task
+</button>

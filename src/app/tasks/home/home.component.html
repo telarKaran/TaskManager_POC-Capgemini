@@ -1,0 +1,41 @@
+<!-- <app-side-menu></app-side-menu>
+
+<app-task></app-task> -->
+
+<div class="side-bar">
+  <nav class="navigation">
+    <ul>
+      <li>
+        <a
+          routerLink="/tasks"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Tasks</a
+        >
+        <a routerLink="/sprints" routerLinkActive="active">Sprints</a>
+        <a routerLink="/developer" routerLinkActive="active">Developer</a>
+        <a routerLink="/tester" routerLinkActive="active">Tester</a>
+        <a routerLink="/signout" routerLinkActive="active">Signout</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="main-content">
+  <section id="about">
+    <select name="option" class="form-select" id="option">
+      <option value="0">Hi.. {{ user }}</option>
+
+      <option value="0">
+        <a routerLink="/login">SignIn</a>
+      </option>
+
+      <option value="0">
+        <a routerLink="/signup">SignUp</a>
+      </option>
+      <option value="0">
+        <a routerLink="/signout">Signout</a>
+      </option>
+    </select>
+    <router-outlet></router-outlet>
+  </section>
+</div>

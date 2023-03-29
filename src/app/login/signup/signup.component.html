@@ -1,0 +1,85 @@
+<div style="display: flex; margin-top: 20vh; justify-content: space-around">
+  <form
+    class="form-group"
+    style="
+      width: 40%;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      padding: 10px;
+    "
+  >
+    <div class="mb-3">
+      <label class="form-label" for="firstName">Username </label>
+      <input
+        class="form-control"
+        autocomplete="off"
+        type="text"
+        name="first-name"
+        id="firstName"
+        placeholder="Username"
+        [(ngModel)]="singupObj.username"
+      />
+      <p
+        class="text-danger"
+        *ngIf="singupObj.username.length < 3 && singupObj.username.length != ''"
+      >
+        Username must be more than 3 Charecter
+      </p>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        class="form-control"
+        autocomplete="off"
+        type="password"
+        name="last-name"
+        id="lastName"
+        placeholder="Password"
+        [(ngModel)]="singupObj.password"
+      />
+      <p
+        class="text-danger"
+        *ngIf="singupObj.password.length < 8 && singupObj.password.length != ''"
+      >
+        Password must be more than 8 Charecter
+      </p>
+    </div>
+
+    <button
+      [disabled]="
+        singupObj.password.length < 8 || singupObj.username.length < 3
+      "
+      style="width: 100%"
+      class="btn btn-primary"
+      (click)="onSignUp()"
+    >
+      SignUp
+    </button>
+    <hr />
+    <button style="width: 100%" class="btn btn-light" (click)="loginD()">
+      Login
+    </button>
+  </form>
+</div>
+
+<!-- 
+
+<form>
+  <label for="firstName">Username </label>
+  <input
+    type="text"
+    name="first-name"
+    id="firstName"
+    placeholder="Username"
+    [(ngModel)]="singupObj.username"
+  /><br />
+  <label for="lastName">Password</label>
+
+  <input
+    type="text"
+    name="last-name"
+    id="lastName"
+    placeholder="Password"
+    [(ngModel)]="singupObj.password"
+  />
+  <button (click)="onSignUp()">Submit</button>
+</form> -->

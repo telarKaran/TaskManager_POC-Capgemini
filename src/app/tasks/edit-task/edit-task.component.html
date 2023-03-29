@@ -1,0 +1,103 @@
+<hr />
+<h1 class="display-5">Edit Task</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Type</label>
+      <select class="form-select" #val1 (change)="onSelected(val1.value)">
+        <option default>{{ data.type || "Any" }}</option>
+        <option>Lakers</option>
+        <option>Miami</option>
+        <option>Cleveland</option>
+      </select>
+
+      <label class="form-label">Title</label>
+      <input
+        [value]="data.title"
+        class="form-control"
+        #val2
+        (change)="onSelected1(val2.value)"
+        name="Title"
+        placeholder="Title"
+        type="text"
+      />
+
+      <label class="form-label">Satus</label>
+      <select class="form-select" #val3 (change)="onSelected2(val3.value)">
+        <option default>{{ data.status || "Any" }}</option>
+        <option>Done</option>
+        <option>Assigne</option>
+        <option>Error</option>
+      </select>
+    </div>
+    <div class="col">
+      <!-- <input
+        #val4
+        (change)="onSelected3(val4.value)"
+        type="text
+  "
+      /> -->
+      <label class="form-label">Textarea</label>
+      <textarea
+        #val4
+        (change)="onSelected3(val4.value)"
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="7"
+      ></textarea>
+    </div>
+  </div>
+  <br />
+  <button
+    style="margin: 10px"
+    class="btn btn-outline-success btn-lg"
+    (click)="saveData($event)"
+  >
+    Save
+  </button>
+  <button
+    style="margin: 10px"
+    class="btn btn-outline-dark btn-lg"
+    (click)="cancle()"
+  >
+    Cancle
+  </button>
+</div>
+
+<!-- 
+
+<h1>Create Task</h1>
+<label>Type</label>
+<select #val1 (change)="onSelected(val1.value)">
+  <option default>{{ data.type || "Any" }}</option>
+  <option>Lakers</option>
+  <option>Miami</option>
+  <option>Cleveland</option>
+</select>
+
+<label>Title</label>
+<input
+  #val2
+  (change)="onSelected1(val2.value)"
+  name="Title"
+  placeholder="Title"
+  type="text"
+  [value]="data.title"
+/>
+
+<label>Satus</label>
+<select #val3 (change)="onSelected2(val3.value)">
+  <option default>{{ data.status || "Any" }}</option>
+  <option>Done</option>
+  <option>Assigne</option>
+  <option>Error</option>
+</select>
+<input
+  #val4
+  (change)="onSelected3(val4.value)"
+  type="text
+"
+/>
+<button (click)="saveData($event)">Save</button>
+<button (click)="cancle()">Cancle</button> -->
